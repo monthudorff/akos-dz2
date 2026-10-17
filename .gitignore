@@ -1,0 +1,6 @@
+.idea/
+.DS_Store
+*.o
+*.log
+kitchen_sem
+kitchen_cv
