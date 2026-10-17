@@ -4,3 +4,5 @@
 *.log
 kitchen_sem
 kitchen_cv
+kitchen_sem_tsan
+kitchen_cv_tsan

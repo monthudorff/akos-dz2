@@ -111,6 +111,8 @@ int    pool_in_use(pool_t *p);
 double pool_busy_time(pool_t *p);
 
 long order_key(const order_t *o);    /* меньше - раньше */
+/* "steak, pizza" */
+void dishes_str(const order_t *o, char *buf, size_t size);
 /* "нарезка (стол, 1) → жарка (гриль, 4)" */
 void dish_chain_str(const dish_def_t *d, char *buf, size_t size);
 

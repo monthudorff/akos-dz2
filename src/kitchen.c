@@ -33,8 +33,7 @@ long order_key(const order_t *o)
     }
 }
 
-/* "steak, pizza" */
-static void dishes_str(const order_t *o, char *buf, size_t size)
+void dishes_str(const order_t *o, char *buf, size_t size)
 {
     size_t len = 0;
     int i, n;
@@ -71,13 +70,11 @@ void *customer_thread(void *arg)
     customer_t *c = arg;
     restaurant_t *r = c->r;
     order_t *o = &c->order;
-    char who[32], dishes[256];
+    char who[32];
     int outcome, n, eat;
     double wait;
 
     snprintf(who, sizeof who, "Посетитель %d", c->id);
-    dishes_str(o, dishes, sizeof dishes);
-    log_event(who, "пришёл%s, хочет: %s", o->vip ? " (VIP)" : "", dishes);
     mx_lock(&r->mx);
     r->st.arrived++;
     mx_unlock(&r->mx);
