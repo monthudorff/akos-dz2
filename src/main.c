@@ -477,10 +477,16 @@ static void final_report(restaurant_t *r, int all_admitted)
                     ? 100.0 * pool_busy_time(&r->eq[i]) / (g_cfg.eq_count[i] * total) : 0.0;
         log_plain("  %s: %d шт., занято %.1f%% времени\n", EQ_NAME[i], g_cfg.eq_count[i], load);
     }
-    log_plain("Проверка: принятые (%d) = обслуженные (%d) + отменённые (%d): %s\n",
-              st.accepted, st.served, st.cancelled, yes_no[balance]);
-    log_plain("Проверка: очереди пусты: %s, оборудование свободно: %s\n",
-              yes_no[queues_empty], yes_no[eq_free]);
+    if (!aborted) {
+        log_plain("Проверка: принятые (%d) = обслуженные (%d) + отменённые (%d): %s\n",
+                  st.accepted, st.served, st.cancelled, yes_no[balance]);
+        log_plain("Проверка: очереди пусты: %s, оборудование свободно: %s\n",
+                  yes_no[queues_empty], yes_no[eq_free]);
+    } else {
+        /* в очередях остались прерванные заказы, баланс сходиться не обязан */
+        log_plain("Проверка: оборудование свободно: %s (баланс заказов и пустота очередей "
+                  "при немедленном выходе не проверяются)\n", yes_no[eq_free]);
+    }
     log_plain("Нарушений инвариантов: %d, ошибок: %d\n", log_violations(), log_errors());
 }
 
