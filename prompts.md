@@ -19,3 +19,6 @@
 
 ## 6
 (вывод терминала macOS: git status — not a git repository; make — ошибки sem_init/sem_destroy is deprecated в sync_sem.c)
+
+## 7
+(вывод терминала: docker run ... — failed to connect to the docker API ... docker.sock: no such file or directory)
