@@ -22,3 +22,6 @@
 
 ## 7
 (вывод терминала: docker run ... — failed to connect to the docker API ... docker.sock: no such file or directory)
+
+## 8
+(вывод терминала: docker run ... gcc:13 make test — обе программы собраны, все тесты ok, включая freestove; ВСЕ ТЕСТЫ ПРОЙДЕНЫ)
