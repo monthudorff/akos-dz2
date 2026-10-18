@@ -16,3 +16,6 @@
 
 ## 5
 (скриншот дерева проекта и раздела «Две программы» в CLAUDE.md) где эти 2 программы здесь?
+
+## 6
+(вывод терминала macOS: git status — not a git repository; make — ошибки sem_init/sem_destroy is deprecated в sync_sem.c)
